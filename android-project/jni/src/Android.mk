@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := main
 
-LOCAL_SRC_FILES := platform/ANDROID/main.c \
+LOCAL_SRC_FILES := main.c \
  common/controls.c \
  common/gpu.c \
  common/interrupts.c \
