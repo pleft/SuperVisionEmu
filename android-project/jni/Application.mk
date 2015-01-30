@@ -4,4 +4,4 @@
 # APP_STL := stlport_static 
 APP_ABI := armeabi-v7a
 APP_PLATFORM := android-10
-NDK_MODULE_PATH := E:\Projects\android\SDL_projects
+NDK_MODULE_PATH := $(call my-dir)\..\..\..\
