@@ -106,10 +106,10 @@ int main(int argc, char *argv[])
         160, 160);
 	PrimarySurface = SDL_CreateRGBSurface(0, 160, 160, 16, 0, 0, 0, 0);
 
-    stretchRect.x = (w - SCALE_TO) / 2;
+    stretchRect.x = 0;
     stretchRect.y = 10;
-    stretchRect.w = SCALE_TO;
-    stretchRect.h = SCALE_TO;
+    stretchRect.w = w;
+    stretchRect.h = w;
 
     supervision_set_colour_scheme(COLOUR_SCHEME_DEFAULT); //COLOUR_SCHEME_DEFAULT COLOUR_SCHEME_GREEN COLOUR_SCHEME_AMBER COLOUR_SCHEME_BLUE
     supervision_init(); //Init the emulator
@@ -120,6 +120,7 @@ int main(int argc, char *argv[])
 
     /* Main render loop */
     SDL_Log("main render loop");
+     memset(screenbuffer, 0, sizeof(screenbuffer));
     short done = 0;
     short dirty = -1;
     SDL_Event event;
@@ -127,7 +128,7 @@ int main(int argc, char *argv[])
         controls_update();
         supervision_exec_fast((int16*)screenbuffer,1);
         Draw();
-        controls_reset();
+//        controls_reset();
     } while (!done && !paused);
 
 
