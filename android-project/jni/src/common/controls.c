@@ -96,7 +96,7 @@ uint8 controls_read(uint32 addr)
 ////////////////////////////////////////////////////////////////////////////////
 BOOL controls_update(void)
 {
-	controls_state = 0;
+//	controls_state = 0;
     SDL_Event event;
 
 	// Check for events
@@ -108,32 +108,43 @@ BOOL controls_update(void)
 				switch( event.key.keysym.sym )
 				{
 					case SDLK_RIGHT:
+					    SDL_Log("SDLK_RIGHT");
                         controls_state|=0x01;
 						break;
 					case SDLK_LEFT:
+					    SDL_Log("SDLK_LEFT");
                         controls_state|=0x02;
 						break;
 					case SDLK_DOWN:
+					    SDL_Log("SDLK_DOWN");
                         controls_state|=0x04;
 						break;
 					case SDLK_UP:
+					    SDL_Log("SDLK_UP");
                         controls_state|=0x08;
 						break;
 					case SDLK_x:
+					    SDL_Log("SDLK_A");
                         controls_state|=0x10;
 						break;
 					case SDLK_c:
+					    SDL_Log("SDLK_B");
                         controls_state|=0x20;
 						break;
 					case SDLK_F1:
+					    SDL_Log("SDLK_SELECT");
                         controls_state|=0x40;
 						break;
 					case SDLK_F2:
+					    SDL_Log("SDLK_START");
                         controls_state|=0x80;
 						break;
 					default:
 						break;
 				}
+			break;
+			case SDL_KEYUP:
+			controls_state = 0;
 			break;
 		}
 	}

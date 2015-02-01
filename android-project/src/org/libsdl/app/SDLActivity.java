@@ -63,11 +63,6 @@ public class SDLActivity extends Activity {
 
     // Load the .so
     static {
-//        System.loadLibrary("SDL2");
-        //System.loadLibrary("SDL2_image");
-        //System.loadLibrary("SDL2_mixer");
-        //System.loadLibrary("SDL2_net");
-        //System.loadLibrary("SDL2_ttf");
         System.loadLibrary("main");
     }
     
@@ -121,7 +116,7 @@ public class SDLActivity extends Activity {
     }
 
     private void loadOnScreenControls() {
-        mVStick = new VirtualDPad(180, 180, 24);
+        mVStick = new VirtualDPad(180, 180, 40);
 
         mOnScreenControls = new HashMap<String, View>();
         mOnScreenControls.put("DPAD", this.findViewById(R.id.vstick));
